@@ -4,7 +4,6 @@ library("tidyverse")
 
 # Read in the data
 
-
 df = read_csv("data/weatherAUS.csv")
 
 # Create a scatter plot of Humidity9am and Temp9am
