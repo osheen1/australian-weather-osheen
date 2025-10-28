@@ -18,6 +18,8 @@ df %>%
   geom_point(color = "yellow") +
   labs(title = "Title") +
   theme_minimal()
+# Save the plot in graphics/
+ggsave(filename = "graphics/scatter-temp-humidity.png", plot = scatter_plot)
 
 bar_chart =
   df %>%
@@ -27,5 +29,11 @@ bar_chart =
   geom_col()
 ggsave(filename = "graphics/barchart-avg-rainfall.png", plot = bar_chart)
 
-# Save the plot in graphics/
-ggsave(filename = "graphics/scatter-temp-humidity.png", plot = scatter_plot)
+
+time_series =
+  df %>%
+  filter(Location == city) %>%
+  ggplot(aes(x = Date, y = Temp9am)) +
+  geom_line()
+ggsave(filename = "graphics/timeseries-rainfall.png",
+       plot = time_series)
