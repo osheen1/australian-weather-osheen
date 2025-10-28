@@ -15,7 +15,7 @@ scatter_plot =
 df %>%
   filter(Location == city) %>%
   ggplot(aes(x = Temp9am, y = Humidity9am)) + 
-  geom_point(color = "yellow") +
+  geom_point(color = "blue") +
   labs(title = "Title") +
   theme_minimal()
 # Save the plot in graphics/
@@ -26,7 +26,7 @@ bar_chart =
   group_by(Location) %>%
   summarise(average_rainfall = mean(Rainfall, na.rm = TRUE)) %>%
   ggplot(aes(y = Location, x = average_rainfall)) +
-  geom_col(fill = "skyblue")
+  geom_col(fill = "blue")
 ggsave(filename = "graphics/barchart-avg-rainfall.png", plot = bar_chart)
 
 
@@ -34,6 +34,6 @@ time_series =
   df %>%
   filter(Location == city) %>%
   ggplot(aes(x = Date, y = Temp9am)) +
-  geom_line()
+  geom_line(colour = "blue")
 ggsave(filename = "graphics/timeseries-rainfall.png",
        plot = time_series)
